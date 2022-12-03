@@ -1,0 +1,197 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: ROBERT Mathieu mathieu, HP Inc., LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\Users\mathi\Documents\Uvision\Project1\Project1.uvprojx
+Project File Date:  12/03/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+assembling startup_stm32l476xx.s...
+RTE/Device/STM32L476VGTx/system_stm32l4xx.c(92): warning: In file included from...
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include\stm32l4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e.
+                                               ^
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include\stm32l4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers
+                                                                    ^
+RTE/Device/STM32L476VGTx/system_stm32l4xx.c(92): warning: In file included from...
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include\stm32l4xx.h(150): warning: In file included from...
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l476xx.h(10): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+3 warnings generated.
+compiling system_stm32l4xx.c...
+st_basic.c(1): warning: In file included from...
+./st_basic.h(7): warning: In file included from...
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include\stm32l4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e.
+                                               ^
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include\stm32l4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers
+                                                                    ^
+st_basic.c(1): warning: In file included from...
+./st_basic.h(7): warning: In file included from...
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include\stm32l4xx.h(150): warning: In file included from...
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l476xx.h(10): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+st_basic.c(3): warning: no previous extern declaration for non-static variable 'sysMillis' [-Wmissing-variable-declarations]
+unsigned int sysMillis = 0;
+             ^
+st_basic.c(3): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+unsigned int sysMillis = 0;
+^
+st_basic.c(27): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        unsigned int modeIn32Bit = ((mode & 3) << (2 * pin));
+                     ~~~~~~~~~~~    ~~~~~~~~~~~^~~~~~~~~~~~
+st_basic.c(28): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        unsigned int pullUpDown = ((mode >> 2) << (2 * pin));
+                     ~~~~~~~~~~    ~~~~~~~~~~~~^~~~~~~~~~~~
+st_basic.c(33): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        port->MODER &= (modeIn32Bit | ~(3 << (2 * pin)));
+                                    ~ ^~~~~~~~~~~~~~~~~
+st_basic.c(36): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        port->PUPDR &= (pullUpDown | ~(3 << (2 * pin)));
+                                   ~ ^~~~~~~~~~~~~~~~~
+st_basic.c(62): warning: implicit conversion loses integer precision: 'volatile uint16_t' (aka 'volatile unsigned short') to 'char' [-Wimplicit-int-conversion]
+        return USART2->RDR;
+        ~~~~~~ ~~~~~~~~^~~
+st_basic.c(76): warning: no previous prototype for function 'SysTick_Handler' [-Wmissing-prototypes]
+void SysTick_Handler(void) { sysMillis++; }
+     ^
+st_basic.c(76): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void SysTick_Handler(void) { sysMillis++; }
+^
+static 
+10 warnings generated.
+compiling st_basic.c...
+main.c(1): warning: In file included from...
+./st_basic.h(7): warning: In file included from...
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include\stm32l4xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *              - To use or not the peripheral<92>s drivers in application code(i.e.
+                                               ^
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include\stm32l4xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *                code will be based on direct access to peripheral<92>s registers
+                                                                    ^
+main.c(1): warning: In file included from...
+./st_basic.h(7): warning: In file included from...
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include\stm32l4xx.h(150): warning: In file included from...
+C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l476xx.h(10): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+main.c(3): warning: no previous extern declaration for non-static variable 'keypad' [-Wmissing-variable-declarations]
+const char keypad[16] = { '1', '2', '3', 'A',
+           ^
+main.c(3): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const char keypad[16] = { '1', '2', '3', 'A',
+      ^
+main.c(7): warning: no previous extern declaration for non-static variable 'password' [-Wmissing-variable-declarations]
+const char password[4] = { '4', '4', '4', '4' };
+           ^
+main.c(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const char password[4] = { '4', '4', '4', '4' };
+      ^
+main.c(9): warning: use of GNU empty initializer extension [-Wgnu-empty-initializer]
+unsigned char isPushed[16] = { };
+                             ^
+main.c(9): warning: no previous extern declaration for non-static variable 'isPushed' [-Wmissing-variable-declarations]
+unsigned char isPushed[16] = { };
+              ^
+main.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+unsigned char isPushed[16] = { };
+^
+main.c(10): warning: no previous extern declaration for non-static variable 'sequence' [-Wmissing-variable-declarations]
+unsigned int sequence = 0;
+             ^
+main.c(10): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+unsigned int sequence = 0;
+^
+main.c(17): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+        for (int i = 0; i <= 3; i++) GPIO_Init(GPIOA, i, GPIO_INPUT_PULLDOWN);
+             ^
+main.c(17): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+main.c(17): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        for (int i = 0; i <= 3; i++) GPIO_Init(GPIOA, i, GPIO_INPUT_PULLDOWN);
+                                     ~~~~~~~~~        ^
+main.c(25): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+                for (int i = 0; i < 4; i++)
+                     ^
+main.c(25): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+main.c(25): warning: declaration shadows a local variable [-Wshadow]
+                for (int i = 0; i < 4; i++)
+                         ^
+main.c(17): note: previous declaration is here
+        for (int i = 0; i <= 3; i++) GPIO_Init(GPIOA, i, GPIO_INPUT_PULLDOWN);
+                 ^
+main.c(29): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIO_Init(GPIOE, (i - 1 + 4) % 4 + 12, GPIO_ANALOG);
+                        ~~~~~~~~~        ~~~~~~~~~~~~~~~~^~~~
+main.c(31): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        GPIO_Init(GPIOE, i + 12, GPIO_OUTPUT);
+                        ~~~~~~~~~        ~~^~~~
+main.c(35): warning: variable declaration in for loop is a C99-specific feature [-Wc99-extensions]
+                        for (int j = 0; j < 4; j++)
+                             ^
+main.c(35): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+main.c(69): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+19 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=1366 RO-data=430 RW-data=0 ZI-data=1656  
+".\Objects\Project1.axf" - 0 Error(s), 32 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32L4xx_DFP.2.6.1.pack
+                Keil.STM32L4xx_DFP.2.6.1
+                STMicroelectronics STM32L4 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.3.1
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_Target_1
+  C:/Users/mathi/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/mathi/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:1.3.1
+      Source file:   MDK/Device/Source/ARM/STM32L4xx_DB_OPT.s
+      Include file:  Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h
+      Source file:   Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/arm/startup_stm32l476xx.s
+      Source file:   Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/system_stm32l4xx.c
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>
