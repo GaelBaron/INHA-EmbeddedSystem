@@ -1,0 +1,6 @@
+1. The sampling time took during a conversion is 92.5.
+2. The ADC clock source is HCLK divided by 4. HCLK is the same as the system clock.
+3. The ADC prescaler divides the input clock by 64.
+
+So the final sampling speed is like this:
+    (80 * 1000) / (4 * 64 * 92.5) ≒ 3.378kHz

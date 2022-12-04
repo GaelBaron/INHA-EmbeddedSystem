@@ -1,0 +1,32 @@
+If we cant show real results -> experimentals results are ok
+Explain the diff scenarios for the presentation
+
+Generalize the idea, less specific problematic
+smart door 	-> switch to open/lock
+		-> ultrasonic sensor
+		-> motor
+		-> keypad
+
+-> same thing but we use switch to lock and unlock the door
+
+Draw scheme in proposal until next week
+
+--> Maybe add buzzer, for wrong password 
+
+
+Multiple scenarios:
+Opening
+Closing
+Locking
+Unlocking
+Detect something for opening
+
+
+
+
+Dans le 2e rendu, faire des diagrammes
+-> Opening diagram
+-> Interraction diagrams
+
+
+-> Try to use all of them in the implementation

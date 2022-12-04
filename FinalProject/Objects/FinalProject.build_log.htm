@@ -1,0 +1,171 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¥ìVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Gaël Baron, Epitech, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\baron\Desktop\Inha Courses\Embedded\FinalProject.uvprojx
+Project File Date:  12/04/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+compiling system_stm32l4xx.c...
+assembling startup_stm32l476xx.s...
+my_st_basic.c(3): warning: no previous extern declaration for non-static variable 'sysMillis' [-Wmissing-variable-declarations]
+unsigned int sysMillis = 0;
+             ^
+my_st_basic.c(3): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+unsigned int sysMillis = 0;
+^
+my_st_basic.c(27): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        unsigned int modeIn32Bit = ((mode & 3) << (2 * pin));
+                     ~~~~~~~~~~~    ~~~~~~~~~~~^~~~~~~~~~~~
+my_st_basic.c(28): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        unsigned int pullUpDown = ((mode >> 2) << (2 * pin));
+                     ~~~~~~~~~~    ~~~~~~~~~~~~^~~~~~~~~~~~
+my_st_basic.c(33): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        port->MODER &= (modeIn32Bit | ~(3 << (2 * pin)));
+                                    ~ ^~~~~~~~~~~~~~~~~
+my_st_basic.c(36): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        port->PUPDR &= (pullUpDown | ~(3 << (2 * pin)));
+                                   ~ ^~~~~~~~~~~~~~~~~
+my_st_basic.c(62): warning: implicit conversion loses integer precision: 'volatile uint16_t' (aka 'volatile unsigned short') to 'char' [-Wimplicit-int-conversion]
+        return USART2->RDR;
+        ~~~~~~ ~~~~~~~~^~~
+my_st_basic.c(76): warning: no previous prototype for function 'SysTick_Handler' [-Wmissing-prototypes]
+void SysTick_Handler(void) { sysMillis++; }
+     ^
+my_st_basic.c(76): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void SysTick_Handler(void) { sysMillis++; }
+^
+static 
+7 warnings generated.
+compiling my_st_basic.c...
+my_main.c(3): warning: // comments are not allowed in this language [-Wcomment]
+//Keypad variables
+^
+my_main.c(4): warning: no previous extern declaration for non-static variable 'keypad' [-Wmissing-variable-declarations]
+const char keypad[16] = { '1', '2', '3', 'A',
+           ^
+my_main.c(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const char keypad[16] = { '1', '2', '3', 'A',
+      ^
+my_main.c(8): warning: no previous extern declaration for non-static variable 'password' [-Wmissing-variable-declarations]
+const char password[4] = { '4', '4', '4', '4' };
+           ^
+my_main.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const char password[4] = { '4', '4', '4', '4' };
+      ^
+my_main.c(9): warning: use of GNU empty initializer extension [-Wgnu-empty-initializer]
+unsigned char isPushed[16] = { };
+                             ^
+my_main.c(9): warning: no previous extern declaration for non-static variable 'isPushed' [-Wmissing-variable-declarations]
+unsigned char isPushed[16] = { };
+              ^
+my_main.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+unsigned char isPushed[16] = { };
+^
+my_main.c(10): warning: no previous extern declaration for non-static variable 'sequence' [-Wmissing-variable-declarations]
+unsigned int sequence = 0;
+             ^
+my_main.c(10): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+unsigned int sequence = 0;
+^
+my_main.c(13): warning: no previous extern declaration for non-static variable 'flagCaptureMiss' [-Wmissing-variable-declarations]
+unsigned char flagCaptureMiss = 0;
+              ^
+my_main.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+unsigned char flagCaptureMiss = 0;
+^
+my_main.c(16): warning: no previous extern declaration for non-static variable 'stepperPin' [-Wmissing-variable-declarations]
+const int stepperPin[4] = { 2, 3, 6, 7 };
+          ^
+my_main.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const int stepperPin[4] = { 2, 3, 6, 7 };
+      ^
+my_main.c(17): warning: no previous extern declaration for non-static variable 'stepperHalfState' [-Wmissing-variable-declarations]
+const unsigned int stepperHalfState[8][4] = { { 1, 0, 0, 0 }, { 1, 1, 0, 0 }, { 0, 1, 0, 0 }, { 0, 1, 1, 0 }, { 0, 0, 1, 0 }, { 0, 0, 1, 1 }, { 0, 0, 0, 1 }, { 1, 0, 0, 1 } };
+                   ^
+my_main.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+const unsigned int stepperHalfState[8][4] = { { 1, 0, 0, 0 }, { 1, 1, 0, 0 }, { 0, 1, 0, 0 }, { 0, 1, 1, 0 }, { 0, 0, 1, 0 }, { 0, 0, 1, 1 }, { 0, 0, 0, 1 }, { 1, 0, 0, 1 } };
+      ^
+my_main.c(18): warning: no previous extern declaration for non-static variable 'currentStep' [-Wmissing-variable-declarations]
+int currentStep = 0;
+    ^
+my_main.c(18): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int currentStep = 0;
+^
+my_main.c(19): warning: no previous extern declaration for non-static variable 'isOpening' [-Wmissing-variable-declarations]
+int isOpening = 1;
+    ^
+my_main.c(19): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int isOpening = 1;
+^
+my_main.c(20): warning: no previous extern declaration for non-static variable 'isMotorMove' [-Wmissing-variable-declarations]
+unsigned char isMotorMove = 0;
+              ^
+my_main.c(20): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+unsigned char isMotorMove = 0;
+^
+my_main.c(43): warning: implicit conversion changes signedness: 'const int' to 'unsigned int' [-Wsign-conversion]
+                GPIO_Init(GPIOB, stepperPin[z], GPIO_OUTPUT);
+                ~~~~~~~~~        ^~~~~~~~~~~~~
+my_main.c(169): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+                        GPIOB->BSRR = (!stepperHalfState[currentStep][i] << (stepperPin[i] + 16));
+                                    ~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+14 warnings generated.
+compiling my_main.c...
+linking...
+Program Size: Code=2210 RO-data=590 RW-data=4 ZI-data=1664  
+".\Objects\FinalProject.axf" - 0 Error(s), 21 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32L4xx_DFP.2.6.1.pack
+                Keil.STM32L4xx_DFP.2.6.1
+                STMicroelectronics STM32L4 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.3.1
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_Target_1
+  C:/Users/baron/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/baron/AppData/Local/Arm/Packs/Keil/STM32L4xx_DFP/2.6.1/Drivers/CMSIS/Device/ST/STM32L4xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:1.3.1
+      Source file:   MDK/Device/Source/ARM/STM32L4xx_DB_OPT.s
+      Source file:   Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/system_stm32l4xx.c
+      Include file:  Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h
+      Source file:   Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/arm/startup_stm32l476xx.s
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
