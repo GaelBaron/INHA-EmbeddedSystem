@@ -8,12 +8,9 @@ Section Cross References
     my_main.o(.text.main) refers to my_st_basic.o(.text.USART2_Init) for USART2_Init
     my_main.o(.text.main) refers to my_main.o(.text.Timer2_Init) for Timer2_Init
     my_main.o(.text.main) refers to my_st_basic.o(.text.GPIO_Init) for GPIO_Init
-    my_main.o(.text.main) refers to my_main.o(.rodata.stepperPin) for stepperPin
-    my_main.o(.text.main) refers to my_main.o(.bss.isMotorMove) for isMotorMove
+    my_main.o(.text.main) refers to my_main.o(.data.stepperPin) for stepperPin
     my_main.o(.text.main) refers to my_main.o(.text.isTooClose) for isTooClose
     my_main.o(.text.main) refers to my_main.o(.text.Step) for Step
-    my_main.o(.text.main) refers to my_main.o(.bss.currentStep) for currentStep
-    my_main.o(.text.main) refers to my_main.o(.data.isOpening) for isOpening
     my_main.o(.text.main) refers to my_st_basic.o(.text.Delay) for Delay
     my_main.o(.text.main) refers to my_main.o(.bss.isPushed) for isPushed
     my_main.o(.text.main) refers to my_main.o(.rodata.keypad) for keypad
@@ -23,16 +20,12 @@ Section Cross References
     my_main.o(.ARM.exidx.text.Timer2_Init) refers to my_main.o(.text.Timer2_Init) for [Anonymous Symbol]
     my_main.o(.text.isTooClose) refers to my_main.o(.text.InputCapture) for InputCapture
     my_main.o(.ARM.exidx.text.isTooClose) refers to my_main.o(.text.isTooClose) for [Anonymous Symbol]
-    my_main.o(.text.Step) refers to my_main.o(.bss.currentStep) for currentStep
     my_main.o(.text.Step) refers to my_main.o(.rodata.stepperHalfState) for stepperHalfState
-    my_main.o(.text.Step) refers to my_main.o(.rodata.stepperPin) for stepperPin
+    my_main.o(.text.Step) refers to my_main.o(.data.stepperPin) for stepperPin
     my_main.o(.text.Step) refers to my_st_basic.o(.text.Delay) for Delay
     my_main.o(.ARM.exidx.text.Step) refers to my_main.o(.text.Step) for [Anonymous Symbol]
-    my_main.o(.text.PasswordInput) refers to my_main.o(.bss.sequence) for sequence
     my_main.o(.text.PasswordInput) refers to my_main.o(.rodata.password) for password
-    my_main.o(.text.PasswordInput) refers to my_main.o(.bss.isMotorMove) for isMotorMove
     my_main.o(.ARM.exidx.text.PasswordInput) refers to my_main.o(.text.PasswordInput) for [Anonymous Symbol]
-    my_main.o(.text.InputCapture) refers to my_main.o(.bss.flagCaptureMiss) for flagCaptureMiss
     my_main.o(.text.InputCapture) refers to my_st_basic.o(.text.Delay) for Delay
     my_main.o(.ARM.exidx.text.InputCapture) refers to my_main.o(.text.InputCapture) for [Anonymous Symbol]
     my_st_basic.o(.ARM.exidx.text.ClockInit) refers to my_st_basic.o(.text.ClockInit) for [Anonymous Symbol]
@@ -330,17 +323,17 @@ Image Symbol Table
     [Anonymous Symbol]                       0x080003a4   Section        0  my_st_basic.o(.text.Delay)
     [Anonymous Symbol]                       0x080003d4   Section        0  my_st_basic.o(.text.GPIO_Init)
     [Anonymous Symbol]                       0x0800045c   Section        0  my_main.o(.text.InputCapture)
-    [Anonymous Symbol]                       0x08000598   Section        0  my_main.o(.text.PasswordInput)
-    [Anonymous Symbol]                       0x0800060c   Section        0  my_main.o(.text.Step)
-    [Anonymous Symbol]                       0x080006cc   Section        0  my_st_basic.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x080006dc   Section        0  system_stm32l4xx.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x08000738   Section        0  my_main.o(.text.Timer2_Init)
-    [Anonymous Symbol]                       0x08000790   Section        0  my_st_basic.o(.text.USART2_Init)
-    [Anonymous Symbol]                       0x08000810   Section        0  my_main.o(.text.isTooClose)
-    [Anonymous Symbol]                       0x0800081c   Section        0  my_main.o(.text.main)
-    $v0                                      0x08000a10   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x08000a10   Section       26  fpinit.o(x$fpl$fpinit)
-    .bss                                     0x20000008   Section       96  libspace.o(.bss)
+    [Anonymous Symbol]                       0x08000584   Section        0  my_main.o(.text.PasswordInput)
+    [Anonymous Symbol]                       0x080005d8   Section        0  my_main.o(.text.Step)
+    [Anonymous Symbol]                       0x0800068c   Section        0  my_st_basic.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x0800069c   Section        0  system_stm32l4xx.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x080006f8   Section        0  my_main.o(.text.Timer2_Init)
+    [Anonymous Symbol]                       0x08000750   Section        0  my_st_basic.o(.text.USART2_Init)
+    [Anonymous Symbol]                       0x080007d0   Section        0  my_main.o(.text.isTooClose)
+    [Anonymous Symbol]                       0x080007e4   Section        0  my_main.o(.text.main)
+    $v0                                      0x080009d4   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x080009d4   Section       26  fpinit.o(x$fpl$fpinit)
+    .bss                                     0x20000010   Section       96  libspace.o(.bss)
     Heap_Mem                                 0x20000088   Data         512  startup_stm32l476xx.o(HEAP)
     HEAP                                     0x20000088   Section      512  startup_stm32l476xx.o(HEAP)
     Stack_Mem                                0x20000288   Data        1024  startup_stm32l476xx.o(STACK)
@@ -539,33 +532,28 @@ Image Symbol Table
     ClockInit                                0x080002e5   Thumb Code   192  my_st_basic.o(.text.ClockInit)
     Delay                                    0x080003a5   Thumb Code    46  my_st_basic.o(.text.Delay)
     GPIO_Init                                0x080003d5   Thumb Code   136  my_st_basic.o(.text.GPIO_Init)
-    InputCapture                             0x0800045d   Thumb Code   316  my_main.o(.text.InputCapture)
-    PasswordInput                            0x08000599   Thumb Code   114  my_main.o(.text.PasswordInput)
-    Step                                     0x0800060d   Thumb Code   190  my_main.o(.text.Step)
-    SysTick_Handler                          0x080006cd   Thumb Code    16  my_st_basic.o(.text.SysTick_Handler)
-    SystemInit                               0x080006dd   Thumb Code    92  system_stm32l4xx.o(.text.SystemInit)
-    Timer2_Init                              0x08000739   Thumb Code    86  my_main.o(.text.Timer2_Init)
-    USART2_Init                              0x08000791   Thumb Code   126  my_st_basic.o(.text.USART2_Init)
-    isTooClose                               0x08000811   Thumb Code    10  my_main.o(.text.isTooClose)
-    main                                     0x0800081d   Thumb Code   500  my_main.o(.text.main)
-    _fp_init                                 0x08000a11   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08000a29   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08000a29   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    keypad                                   0x08000a2a   Data          16  my_main.o(.rodata.keypad)
-    password                                 0x08000a3a   Data           4  my_main.o(.rodata.password)
-    stepperHalfState                         0x08000a40   Data         128  my_main.o(.rodata.stepperHalfState)
-    stepperPin                               0x08000ac0   Data          16  my_main.o(.rodata.stepperPin)
-    Region$$Table$$Base                      0x08000ad0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000af0   Number         0  anon$$obj.o(Region$$Table)
-    isOpening                                0x20000000   Data           4  my_main.o(.data.isOpening)
-    __libspace_start                         0x20000008   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20000068   Data           0  libspace.o(.bss)
-    currentStep                              0x20000068   Data           4  my_main.o(.bss.currentStep)
-    flagCaptureMiss                          0x2000006c   Data           1  my_main.o(.bss.flagCaptureMiss)
-    isMotorMove                              0x2000006d   Data           1  my_main.o(.bss.isMotorMove)
-    isPushed                                 0x2000006e   Data          16  my_main.o(.bss.isPushed)
-    sequence                                 0x20000080   Data           4  my_main.o(.bss.sequence)
-    sysMillis                                0x20000084   Data           4  my_st_basic.o(.bss.sysMillis)
+    InputCapture                             0x0800045d   Thumb Code   294  my_main.o(.text.InputCapture)
+    PasswordInput                            0x08000585   Thumb Code    82  my_main.o(.text.PasswordInput)
+    Step                                     0x080005d9   Thumb Code   178  my_main.o(.text.Step)
+    SysTick_Handler                          0x0800068d   Thumb Code    16  my_st_basic.o(.text.SysTick_Handler)
+    SystemInit                               0x0800069d   Thumb Code    92  system_stm32l4xx.o(.text.SystemInit)
+    Timer2_Init                              0x080006f9   Thumb Code    86  my_main.o(.text.Timer2_Init)
+    USART2_Init                              0x08000751   Thumb Code   126  my_st_basic.o(.text.USART2_Init)
+    isTooClose                               0x080007d1   Thumb Code    18  my_main.o(.text.isTooClose)
+    main                                     0x080007e5   Thumb Code   496  my_main.o(.text.main)
+    _fp_init                                 0x080009d5   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x080009ed   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x080009ed   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    keypad                                   0x080009ee   Data          16  my_main.o(.rodata.keypad)
+    password                                 0x080009fe   Data           4  my_main.o(.rodata.password)
+    stepperHalfState                         0x08000a04   Data         128  my_main.o(.rodata.stepperHalfState)
+    Region$$Table$$Base                      0x08000a84   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000aa4   Number         0  anon$$obj.o(Region$$Table)
+    stepperPin                               0x20000000   Data          16  my_main.o(.data.stepperPin)
+    __libspace_start                         0x20000010   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000070   Data           0  libspace.o(.bss)
+    isPushed                                 0x20000070   Data          16  my_main.o(.bss.isPushed)
+    sysMillis                                0x20000080   Data           4  my_st_basic.o(.bss.sysMillis)
 
 
 
@@ -575,119 +563,115 @@ Memory Map of the image
 
   Image Entry point : 0x08000229
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00000af4, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00000ab4, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000af0, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000aa4, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x08000000   0x08000000   0x00000188   Data   RO           57    RESET               startup_stm32l476xx.o
-    0x08000188   0x08000188   0x00000008   Code   RO           83  * !!!main             c_w.l(__main.o)
-    0x08000190   0x08000190   0x00000034   Code   RO          248    !!!scatter          c_w.l(__scatter.o)
-    0x080001c4   0x080001c4   0x0000001a   Code   RO          250    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x08000000   0x08000000   0x00000188   Data   RO           52    RESET               startup_stm32l476xx.o
+    0x08000188   0x08000188   0x00000008   Code   RO           78  * !!!main             c_w.l(__main.o)
+    0x08000190   0x08000190   0x00000034   Code   RO          243    !!!scatter          c_w.l(__scatter.o)
+    0x080001c4   0x080001c4   0x0000001a   Code   RO          245    !!handler_copy      c_w.l(__scatter_copy.o)
     0x080001de   0x080001de   0x00000002   PAD
-    0x080001e0   0x080001e0   0x0000001c   Code   RO          252    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x080001fc   0x080001fc   0x00000002   Code   RO          110    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x080001fe   0x080001fe   0x00000004   Code   RO          116    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          119    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          121    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          124    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          126    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          128    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          131    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          133    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          135    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          137    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          139    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          141    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          143    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          145    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          147    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          149    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          151    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          155    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          157    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          159    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000000   Code   RO          161    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
-    0x08000202   0x08000202   0x00000002   Code   RO          162    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
-    0x08000204   0x08000204   0x00000002   Code   RO          184    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x08000206   0x08000206   0x00000000   Code   RO          199    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x08000206   0x08000206   0x00000000   Code   RO          201    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x08000206   0x08000206   0x00000000   Code   RO          204    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x08000206   0x08000206   0x00000000   Code   RO          207    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x08000206   0x08000206   0x00000000   Code   RO          209    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x08000206   0x08000206   0x00000000   Code   RO          212    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x08000206   0x08000206   0x00000002   Code   RO          213    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x08000208   0x08000208   0x00000000   Code   RO           85    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x08000208   0x08000208   0x00000000   Code   RO           87    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x08000208   0x08000208   0x00000006   Code   RO           99    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x0800020e   0x0800020e   0x00000000   Code   RO           89    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x0800020e   0x0800020e   0x00000004   Code   RO           90    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x08000212   0x08000212   0x00000000   Code   RO           92    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x08000212   0x08000212   0x00000008   Code   RO           93    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x0800021a   0x0800021a   0x00000002   Code   RO          114    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x0800021c   0x0800021c   0x00000000   Code   RO          164    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x0800021c   0x0800021c   0x00000004   Code   RO          165    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x08000220   0x08000220   0x00000006   Code   RO          166    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x080001e0   0x080001e0   0x0000001c   Code   RO          247    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x080001fc   0x080001fc   0x00000002   Code   RO          105    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x080001fe   0x080001fe   0x00000004   Code   RO          111    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          114    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          116    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          119    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          121    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          123    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          126    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          128    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          130    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          132    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          134    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          136    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          138    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          140    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          142    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          144    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          146    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          150    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          152    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          154    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000000   Code   RO          156    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
+    0x08000202   0x08000202   0x00000002   Code   RO          157    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
+    0x08000204   0x08000204   0x00000002   Code   RO          179    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x08000206   0x08000206   0x00000000   Code   RO          194    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x08000206   0x08000206   0x00000000   Code   RO          196    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x08000206   0x08000206   0x00000000   Code   RO          199    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x08000206   0x08000206   0x00000000   Code   RO          202    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x08000206   0x08000206   0x00000000   Code   RO          204    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x08000206   0x08000206   0x00000000   Code   RO          207    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x08000206   0x08000206   0x00000002   Code   RO          208    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x08000208   0x08000208   0x00000000   Code   RO           80    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x08000208   0x08000208   0x00000000   Code   RO           82    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x08000208   0x08000208   0x00000006   Code   RO           94    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0800020e   0x0800020e   0x00000000   Code   RO           84    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x0800020e   0x0800020e   0x00000004   Code   RO           85    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x08000212   0x08000212   0x00000000   Code   RO           87    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x08000212   0x08000212   0x00000008   Code   RO           88    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x0800021a   0x0800021a   0x00000002   Code   RO          109    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x0800021c   0x0800021c   0x00000000   Code   RO          159    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x0800021c   0x0800021c   0x00000004   Code   RO          160    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x08000220   0x08000220   0x00000006   Code   RO          161    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x08000226   0x08000226   0x00000002   PAD
-    0x08000228   0x08000228   0x00000040   Code   RO           58  * .text               startup_stm32l476xx.o
-    0x08000268   0x08000268   0x00000006   Code   RO           81    .text               c_w.l(heapauxi.o)
-    0x0800026e   0x0800026e   0x0000004a   Code   RO          101    .text               c_w.l(sys_stackheap_outer.o)
-    0x080002b8   0x080002b8   0x00000012   Code   RO          103    .text               c_w.l(exit.o)
+    0x08000228   0x08000228   0x00000040   Code   RO           53  * .text               startup_stm32l476xx.o
+    0x08000268   0x08000268   0x00000006   Code   RO           76    .text               c_w.l(heapauxi.o)
+    0x0800026e   0x0800026e   0x0000004a   Code   RO           96    .text               c_w.l(sys_stackheap_outer.o)
+    0x080002b8   0x080002b8   0x00000012   Code   RO           98    .text               c_w.l(exit.o)
     0x080002ca   0x080002ca   0x00000002   PAD
-    0x080002cc   0x080002cc   0x00000008   Code   RO          111    .text               c_w.l(libspace.o)
-    0x080002d4   0x080002d4   0x0000000c   Code   RO          174    .text               c_w.l(sys_exit.o)
-    0x080002e0   0x080002e0   0x00000002   Code   RO          189    .text               c_w.l(use_no_semi.o)
-    0x080002e2   0x080002e2   0x00000000   Code   RO          191    .text               c_w.l(indicate_semi.o)
+    0x080002cc   0x080002cc   0x00000008   Code   RO          106    .text               c_w.l(libspace.o)
+    0x080002d4   0x080002d4   0x0000000c   Code   RO          169    .text               c_w.l(sys_exit.o)
+    0x080002e0   0x080002e0   0x00000002   Code   RO          184    .text               c_w.l(use_no_semi.o)
+    0x080002e2   0x080002e2   0x00000000   Code   RO          186    .text               c_w.l(indicate_semi.o)
     0x080002e2   0x080002e2   0x00000002   PAD
-    0x080002e4   0x080002e4   0x000000c0   Code   RO           32    .text.ClockInit     my_st_basic.o
-    0x080003a4   0x080003a4   0x0000002e   Code   RO           38    .text.Delay         my_st_basic.o
+    0x080002e4   0x080002e4   0x000000c0   Code   RO           27    .text.ClockInit     my_st_basic.o
+    0x080003a4   0x080003a4   0x0000002e   Code   RO           33    .text.Delay         my_st_basic.o
     0x080003d2   0x080003d2   0x00000002   PAD
-    0x080003d4   0x080003d4   0x00000088   Code   RO           34    .text.GPIO_Init     my_st_basic.o
-    0x0800045c   0x0800045c   0x0000013c   Code   RO           12    .text.InputCapture  my_main.o
-    0x08000598   0x08000598   0x00000072   Code   RO           10    .text.PasswordInput  my_main.o
-    0x0800060a   0x0800060a   0x00000002   PAD
-    0x0800060c   0x0800060c   0x000000be   Code   RO            8    .text.Step          my_main.o
-    0x080006ca   0x080006ca   0x00000002   PAD
-    0x080006cc   0x080006cc   0x00000010   Code   RO           46    .text.SysTick_Handler  my_st_basic.o
-    0x080006dc   0x080006dc   0x0000005c   Code   RO           65    .text.SystemInit    system_stm32l4xx.o
-    0x08000738   0x08000738   0x00000056   Code   RO            4    .text.Timer2_Init   my_main.o
-    0x0800078e   0x0800078e   0x00000002   PAD
-    0x08000790   0x08000790   0x0000007e   Code   RO           36    .text.USART2_Init   my_st_basic.o
-    0x0800080e   0x0800080e   0x00000002   PAD
-    0x08000810   0x08000810   0x0000000a   Code   RO            6    .text.isTooClose    my_main.o
-    0x0800081a   0x0800081a   0x00000002   PAD
-    0x0800081c   0x0800081c   0x000001f4   Code   RO            2    .text.main          my_main.o
-    0x08000a10   0x08000a10   0x0000001a   Code   RO          172    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08000a2a   0x08000a2a   0x00000010   Data   RO           14    .rodata.keypad      my_main.o
-    0x08000a3a   0x08000a3a   0x00000004   Data   RO           15    .rodata.password    my_main.o
-    0x08000a3e   0x08000a3e   0x00000002   PAD
-    0x08000a40   0x08000a40   0x00000080   Data   RO           20    .rodata.stepperHalfState  my_main.o
-    0x08000ac0   0x08000ac0   0x00000010   Data   RO           19    .rodata.stepperPin  my_main.o
-    0x08000ad0   0x08000ad0   0x00000020   Data   RO          247    Region$$Table       anon$$obj.o
+    0x080003d4   0x080003d4   0x00000088   Code   RO           29    .text.GPIO_Init     my_st_basic.o
+    0x0800045c   0x0800045c   0x00000126   Code   RO           12    .text.InputCapture  my_main.o
+    0x08000582   0x08000582   0x00000002   PAD
+    0x08000584   0x08000584   0x00000052   Code   RO           10    .text.PasswordInput  my_main.o
+    0x080005d6   0x080005d6   0x00000002   PAD
+    0x080005d8   0x080005d8   0x000000b2   Code   RO            8    .text.Step          my_main.o
+    0x0800068a   0x0800068a   0x00000002   PAD
+    0x0800068c   0x0800068c   0x00000010   Code   RO           41    .text.SysTick_Handler  my_st_basic.o
+    0x0800069c   0x0800069c   0x0000005c   Code   RO           60    .text.SystemInit    system_stm32l4xx.o
+    0x080006f8   0x080006f8   0x00000056   Code   RO            4    .text.Timer2_Init   my_main.o
+    0x0800074e   0x0800074e   0x00000002   PAD
+    0x08000750   0x08000750   0x0000007e   Code   RO           31    .text.USART2_Init   my_st_basic.o
+    0x080007ce   0x080007ce   0x00000002   PAD
+    0x080007d0   0x080007d0   0x00000012   Code   RO            6    .text.isTooClose    my_main.o
+    0x080007e2   0x080007e2   0x00000002   PAD
+    0x080007e4   0x080007e4   0x000001f0   Code   RO            2    .text.main          my_main.o
+    0x080009d4   0x080009d4   0x0000001a   Code   RO          167    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x080009ee   0x080009ee   0x00000010   Data   RO           14    .rodata.keypad      my_main.o
+    0x080009fe   0x080009fe   0x00000004   Data   RO           15    .rodata.password    my_main.o
+    0x08000a02   0x08000a02   0x00000002   PAD
+    0x08000a04   0x08000a04   0x00000080   Data   RO           18    .rodata.stepperHalfState  my_main.o
+    0x08000a84   0x08000a84   0x00000020   Data   RO          242    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000af0, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x20000000   0x08000af0   0x00000004   Data   RW           22    .data.isOpening     my_main.o
-
-
-    Execution Region ER_ZI (Exec base: 0x20000008, Load base: 0x08000af4, Size: 0x00000680, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000aa4, Size: 0x00000010, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000008        -       0x00000060   Zero   RW          112    .bss                c_w.l(libspace.o)
-    0x20000068        -       0x00000004   Zero   RW           21    .bss.currentStep    my_main.o
-    0x2000006c        -       0x00000001   Zero   RW           18    .bss.flagCaptureMiss  my_main.o
-    0x2000006d        -       0x00000001   Zero   RW           23    .bss.isMotorMove    my_main.o
-    0x2000006e        -       0x00000010   Zero   RW           16    .bss.isPushed       my_main.o
-    0x2000007e   0x08000af4   0x00000002   PAD
-    0x20000080        -       0x00000004   Zero   RW           17    .bss.sequence       my_main.o
-    0x20000084        -       0x00000004   Zero   RW           48    .bss.sysMillis      my_st_basic.o
-    0x20000088        -       0x00000200   Zero   RW           56    HEAP                startup_stm32l476xx.o
-    0x20000288        -       0x00000400   Zero   RW           55    STACK               startup_stm32l476xx.o
+    0x20000000   0x08000aa4   0x00000010   Data   RW           17    .data.stepperPin    my_main.o
+
+
+    Execution Region ER_ZI (Exec base: 0x20000010, Load base: 0x08000ab4, Size: 0x00000678, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000010        -       0x00000060   Zero   RW          107    .bss                c_w.l(libspace.o)
+    0x20000070        -       0x00000010   Zero   RW           16    .bss.isPushed       my_main.o
+    0x20000080        -       0x00000004   Zero   RW           43    .bss.sysMillis      my_st_basic.o
+    0x20000084   0x08000ab4   0x00000004   PAD
+    0x20000088        -       0x00000200   Zero   RW           51    HEAP                startup_stm32l476xx.o
+    0x20000288        -       0x00000400   Zero   RW           50    STACK               startup_stm32l476xx.o
 
 
 ==============================================================================
@@ -697,15 +681,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1216          0        164          4         26       4366   my_main.o
+      1154          0        148         16         16       4495   my_main.o
        516          0          0          0          4       4166   my_st_basic.o
         64         26        392          0       1536        892   startup_stm32l476xx.o
         92          0          0          0          0       2985   system_stm32l4xx.o
 
     ----------------------------------------------------------------------
-      1900         26        590          4       1568      12409   Object Totals
+      1840         26        574         16       1560      12538   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        12          0          2          0          2          0   (incl. Padding)
+        14          0          2          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -754,15 +738,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2210         42        590          4       1664      12913   Grand Totals
-      2210         42        590          4       1664      12913   ELF Image Totals
-      2210         42        590          4          0          0   ROM Totals
+      2150         42        574         16       1656      13042   Grand Totals
+      2150         42        574         16       1656      13042   ELF Image Totals
+      2150         42        574         16          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2800 (   2.73kB)
-    Total RW  Size (RW Data + ZI Data)              1668 (   1.63kB)
-    Total ROM Size (Code + RO Data + RW Data)       2804 (   2.74kB)
+    Total RO  Size (Code + RO Data)                 2724 (   2.66kB)
+    Total RW  Size (RW Data + ZI Data)              1672 (   1.63kB)
+    Total ROM Size (Code + RO Data + RW Data)       2740 (   2.68kB)
 
 ==============================================================================
 

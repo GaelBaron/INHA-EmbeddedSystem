@@ -4,24 +4,17 @@
 const char keypad[16] = { '1', '2', '3', 'A', '4', '5', '6', 'B', '7', '8', '9', 'C', '*', '0', '#', 'D' };
 const char password[4] = { '4', '4', '4', '4' };
 unsigned char isPushed[16] = { };
-unsigned int sequence = 0;
-
-//Timer variables
-unsigned char flagCaptureMiss = 0;
 
 //Stepper variables
-const int stepperPin[4] = { 2, 3, 6, 7 };
+unsigned int stepperPin[4] = { 2, 3, 6, 7 };
 const unsigned int stepperHalfState[8][4] = { { 1, 0, 0, 0 }, { 1, 1, 0, 0 }, { 0, 1, 0, 0 }, { 0, 1, 1, 0 }, { 0, 0, 1, 0 }, { 0, 0, 1, 1 }, { 0, 0, 0, 1 }, { 1, 0, 0, 1 } };
-int currentStep = 0;
-int isOpening = 1;
-unsigned char isMotorMove = 0;
 
-void PasswordInput(char character);
+void PasswordInput(char character, unsigned char *motorMoving, unsigned int *sequence);
 void Timer2_Init(void);
-int isTooClose(void);																							
-unsigned int InputCapture(void);
+int isTooClose(unsigned char *flagCaptureMiss);																							
+unsigned int InputCapture(unsigned char *flagCaptureMiss);
 unsigned int DistanceCalc(unsigned int value);
-void Step(int step);
+void Step(int step, int *currentStep);
 
 int main(void)
 {
@@ -30,6 +23,11 @@ int main(void)
 	unsigned int z = 0;
 	unsigned int i = 0;
 	unsigned int j = 0;
+	unsigned char motorMoving = 0;
+	int currentStep = 0;
+	int isOpening = 1;// Unused because the motor can't turn on the oposite way
+	unsigned int sequence = 0;
+	unsigned char flagCaptureMiss = 0;
 
 	ClockInit();
 	USART2_Init();
@@ -42,13 +40,13 @@ int main(void)
 	while (1)
 	{
 		//When motor is moving, stop if something is too close or if delay expired
-		if (isMotorMove)
+		if (motorMoving)
 		{
-			if (isTooClose()) { isMotorMove = 0; }
-			else Step(1);
+			if (isTooClose(&flagCaptureMiss)) { motorMoving= 0; }
+			else Step(1, &currentStep);
 			if (tmpLol < 1000) tmpLol++;
 			if (tmpLol >= 999) {
-				isMotorMove = 0;
+				motorMoving = 0;
 				currentStep = 0;
 				isOpening = isOpening * -1;
 			}
@@ -71,7 +69,7 @@ int main(void)
 					{
 						if (!isPushed[4 * i + j])
 						{
-							PasswordInput(keypad[4 * i + j]);
+							PasswordInput(keypad[4 * i + j], &motorMoving, &sequence);
 							isPushed[4 * i + j] = 1;
 						}
 					}
@@ -82,18 +80,18 @@ int main(void)
 	}
 }
 
-void PasswordInput(char character)
+void PasswordInput(char character, unsigned char *motorMoving, unsigned int *sequence)
 {
-	if (password[sequence] == character)
+	if (password[*sequence] == character)
 	{
-		if (sequence == 3)
+		if (*sequence == 3)
 		{
-			isMotorMove = 1;
-			sequence = 0;
+			*motorMoving = 1;
+			*sequence = 0;
 		}
-		else sequence++;
+		else (*sequence)++;
 	}
-	else sequence = 0;
+	else *sequence = 0;
 }
 
 void Timer2_Init(void)
@@ -106,20 +104,20 @@ void Timer2_Init(void)
 	TIM2->CR1 |= TIM_CR1_CEN;
 }
 
-int isTooClose(void)
+int isTooClose(unsigned char *flagCaptureMiss)
 {
-	return ((InputCapture() < 10)/ (80 * 58) ? 1 : 0);
+	return ((InputCapture(flagCaptureMiss) < 10)/ (80 * 58) ? 1 : 0);
 }
 
-unsigned int InputCapture(void)
+unsigned int InputCapture(unsigned char *flagCaptureMiss)
 {
-	switch (flagCaptureMiss)
+	switch (*flagCaptureMiss)
 	{
 		case 1:
 			if (TIM2->SR & TIM_SR_CC1IF)
 			{
 				TIM2->SR &= ~TIM_SR_CC1IF;
-				flagCaptureMiss = 2;
+				*flagCaptureMiss = 2;
 			}
 			
 			return 500 * 80 * 58;
@@ -127,7 +125,7 @@ unsigned int InputCapture(void)
 			if (TIM2->SR & TIM_SR_CC1IF)
 			{
 				TIM2->SR &= ~TIM_SR_CC1IF;
-				flagCaptureMiss = 0;
+				*flagCaptureMiss = 0;
 			}
 			else return 500 * 80 * 58;
 			break;
@@ -140,7 +138,7 @@ unsigned int InputCapture(void)
 	TIM2->CNT = 0;
 	while (!(TIM2->SR & TIM_SR_CC1IF)) if (TIM2->CNT >= 20 * 80 * 1000)
 	{
-		flagCaptureMiss = 1;
+		*flagCaptureMiss = 1;
 		return 500 * 80 * 58;
 	}
 	TIM2->SR &= ~TIM_SR_CC1IF;
@@ -150,18 +148,18 @@ unsigned int InputCapture(void)
 }
 
 
-void Step(int step)
+void Step(int step, int *currentStep)
 {
 	int i = 0;
 	int direction = (step > 0) ? 1 : -1;
 
 	while (step != 0)
 	{
-		currentStep = (currentStep + direction + 8) % 8;
+		*currentStep = (*currentStep + direction + 8) % 8;
 		for (; i < 4; i++)
 		{
-			GPIOB->BSRR = (stepperHalfState[currentStep][i] << stepperPin[i]);
-			GPIOB->BSRR = (!stepperHalfState[currentStep][i] << (stepperPin[i] + 16));
+			GPIOB->BSRR = (stepperHalfState[*currentStep][i] << stepperPin[i]);
+			GPIOB->BSRR = (!stepperHalfState[*currentStep][i] << (stepperPin[i] + 16));
 		}
 		step -= direction;
 		Delay(2);

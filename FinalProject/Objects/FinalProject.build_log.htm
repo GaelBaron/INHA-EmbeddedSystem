@@ -27,7 +27,6 @@ Project File Date:  12/04/2022
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
-compiling system_stm32l4xx.c...
 assembling startup_stm32l476xx.s...
 my_st_basic.c(3): warning: no previous extern declaration for non-static variable 'sysMillis' [-Wmissing-variable-declarations]
 unsigned int sysMillis = 0;
@@ -59,83 +58,51 @@ void SysTick_Handler(void) { sysMillis++; }
 static 
 7 warnings generated.
 compiling my_st_basic.c...
+compiling system_stm32l4xx.c...
 my_main.c(3): warning: // comments are not allowed in this language [-Wcomment]
 //Keypad variables
 ^
 my_main.c(4): warning: no previous extern declaration for non-static variable 'keypad' [-Wmissing-variable-declarations]
-const char keypad[16] = { '1', '2', '3', 'A',
+const char keypad[16] = { '1', '2', '3', 'A', '4', '5', '6', 'B', '7', '8', '9', 'C', '*', '0', '#', 'D' };
            ^
 my_main.c(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-const char keypad[16] = { '1', '2', '3', 'A',
+const char keypad[16] = { '1', '2', '3', 'A', '4', '5', '6', 'B', '7', '8', '9', 'C', '*', '0', '#', 'D' };
       ^
-my_main.c(8): warning: no previous extern declaration for non-static variable 'password' [-Wmissing-variable-declarations]
+my_main.c(5): warning: no previous extern declaration for non-static variable 'password' [-Wmissing-variable-declarations]
 const char password[4] = { '4', '4', '4', '4' };
            ^
-my_main.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+my_main.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 const char password[4] = { '4', '4', '4', '4' };
       ^
-my_main.c(9): warning: use of GNU empty initializer extension [-Wgnu-empty-initializer]
+my_main.c(6): warning: use of GNU empty initializer extension [-Wgnu-empty-initializer]
 unsigned char isPushed[16] = { };
                              ^
-my_main.c(9): warning: no previous extern declaration for non-static variable 'isPushed' [-Wmissing-variable-declarations]
+my_main.c(6): warning: no previous extern declaration for non-static variable 'isPushed' [-Wmissing-variable-declarations]
 unsigned char isPushed[16] = { };
               ^
-my_main.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+my_main.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 unsigned char isPushed[16] = { };
 ^
-my_main.c(10): warning: no previous extern declaration for non-static variable 'sequence' [-Wmissing-variable-declarations]
-unsigned int sequence = 0;
+my_main.c(9): warning: no previous extern declaration for non-static variable 'stepperPin' [-Wmissing-variable-declarations]
+unsigned int stepperPin[4] = { 2, 3, 6, 7 };
              ^
-my_main.c(10): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-unsigned int sequence = 0;
+my_main.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+unsigned int stepperPin[4] = { 2, 3, 6, 7 };
 ^
-my_main.c(13): warning: no previous extern declaration for non-static variable 'flagCaptureMiss' [-Wmissing-variable-declarations]
-unsigned char flagCaptureMiss = 0;
-              ^
-my_main.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-unsigned char flagCaptureMiss = 0;
-^
-my_main.c(16): warning: no previous extern declaration for non-static variable 'stepperPin' [-Wmissing-variable-declarations]
-const int stepperPin[4] = { 2, 3, 6, 7 };
-          ^
-my_main.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-const int stepperPin[4] = { 2, 3, 6, 7 };
-      ^
-my_main.c(17): warning: no previous extern declaration for non-static variable 'stepperHalfState' [-Wmissing-variable-declarations]
+my_main.c(10): warning: no previous extern declaration for non-static variable 'stepperHalfState' [-Wmissing-variable-declarations]
 const unsigned int stepperHalfState[8][4] = { { 1, 0, 0, 0 }, { 1, 1, 0, 0 }, { 0, 1, 0, 0 }, { 0, 1, 1, 0 }, { 0, 0, 1, 0 }, { 0, 0, 1, 1 }, { 0, 0, 0, 1 }, { 1, 0, 0, 1 } };
                    ^
-my_main.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+my_main.c(10): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 const unsigned int stepperHalfState[8][4] = { { 1, 0, 0, 0 }, { 1, 1, 0, 0 }, { 0, 1, 0, 0 }, { 0, 1, 1, 0 }, { 0, 0, 1, 0 }, { 0, 0, 1, 1 }, { 0, 0, 0, 1 }, { 1, 0, 0, 1 } };
       ^
-my_main.c(18): warning: no previous extern declaration for non-static variable 'currentStep' [-Wmissing-variable-declarations]
-int currentStep = 0;
-    ^
-my_main.c(18): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int currentStep = 0;
-^
-my_main.c(19): warning: no previous extern declaration for non-static variable 'isOpening' [-Wmissing-variable-declarations]
-int isOpening = 1;
-    ^
-my_main.c(19): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int isOpening = 1;
-^
-my_main.c(20): warning: no previous extern declaration for non-static variable 'isMotorMove' [-Wmissing-variable-declarations]
-unsigned char isMotorMove = 0;
-              ^
-my_main.c(20): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-unsigned char isMotorMove = 0;
-^
-my_main.c(43): warning: implicit conversion changes signedness: 'const int' to 'unsigned int' [-Wsign-conversion]
-                GPIO_Init(GPIOB, stepperPin[z], GPIO_OUTPUT);
-                ~~~~~~~~~        ^~~~~~~~~~~~~
-my_main.c(169): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-                        GPIOB->BSRR = (!stepperHalfState[currentStep][i] << (stepperPin[i] + 16));
-                                    ~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
-14 warnings generated.
+my_main.c(162): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+                        GPIOB->BSRR = (!stepperHalfState[*currentStep][i] << (stepperPin[i] + 16));
+                                    ~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+8 warnings generated.
 compiling my_main.c...
 linking...
-Program Size: Code=2210 RO-data=590 RW-data=4 ZI-data=1664  
-".\Objects\FinalProject.axf" - 0 Error(s), 21 Warning(s).
+Program Size: Code=2150 RO-data=574 RW-data=16 ZI-data=1656  
+".\Objects\FinalProject.axf" - 0 Error(s), 15 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -162,10 +129,10 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.3.1
       Source file:   MDK/Device/Source/ARM/STM32L4xx_DB_OPT.s
-      Source file:   Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/system_stm32l4xx.c
       Include file:  Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h
+      Source file:   Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/system_stm32l4xx.c
       Source file:   Drivers/CMSIS/Device/ST/STM32L4xx/Source/Templates/arm/startup_stm32l476xx.s
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>
