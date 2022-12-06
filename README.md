@@ -1,6 +1,6 @@
 # INHA-EmbeddedSystem
   
-Project Realized by Gaël Baron, Arthur Decovemacker, Balthazar Roque, Matthieu Robert  
+Project Realized by Gaël Baron, Arthur Decovemacker, Balthazar Roque, Mathieu Robert  
 This project have been developed on Keil Uvision and need to be started there, on a Cortex M4 Processor for STM32L476G Board.  
   
   
