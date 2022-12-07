@@ -9,3 +9,6 @@ In order to start this project, the following branchement need to be followed:
   
 This project is a self opening door who will open when the right code is used (here 4444) and the sensor have verified that nothin is behind the door, avoiding them to be hurted. Then the door open automaticaly  
 The working code is on my_main.c, my_st_basic.c and my_st_basic.h  
+  
+  
+The project name is "FinalProject", contained in the directory "FinalProject"  
